@@ -1,5 +1,5 @@
 
-frontend task for Zetwerk
+frontend task for Avaamo
 ----------------------------
 
     > backend is on Python-Flask, database: mongoDB
