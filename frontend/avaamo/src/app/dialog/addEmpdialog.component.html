@@ -1,0 +1,64 @@
+
+
+<style>
+  .form-group{
+    position: relative;
+  }
+  .required-field{
+    position: absolute;
+    color: red;
+    left: 10%;
+  }
+
+</style>
+
+  <div mat-dialog-content>
+    
+      <p *ngFor="let item of all_keys">
+        {{item}} :: {{dialogInfo[item]}}
+      </p>
+
+      <div class="personal-dialog-parent">  
+          <form #boardForm="ngForm" (ngSubmit)="saveBoard(boardForm.form)">
+    
+            <div class="row form-group">
+              <label class="col-md-3 col-form-label">Title</label>
+              <input class="col-md-6" name="title" type="text" required="true" [ngModel]="board.title" />
+              <span class="required-field">*</span>
+            </div>
+            <div class="row form-group">
+              <label class="col-md-3 col-form-label">Description</label>
+              <input class="col-md-6" name="description" type="text" [ngModel]="board.description" />
+              
+            </div>
+            <div class="row form-group">
+                <label class="col-md-3 col-form-label">Status</label>
+                <input class="col-md-6" name="status" type="text" [ngModel]="board.status" />
+                
+            </div>
+            <div class="row form-group">
+                <label class="col-md-3 col-form-label">Asiignee</label>
+                <input class="col-md-6" name="asiignee" type="text" [ngModel]="board.asiignee" />
+                
+            </div>
+            <div class="row form-group">
+                <label class="col-md-3 col-form-label">Creator</label>
+                <input class="col-md-6" name="creator" type="text" [ngModel]="board.creator" />
+                
+            </div>
+            <div class="row form-group">
+                <label class="col-md-3 col-form-label">Priority</label>
+                <input class="col-md-6" name="priority" type="text" [ngModel]="board.priority" />
+                
+            </div>
+    
+            <div class="row form-group">
+                <button mat-button mat-dialog-close>Cancel</button>
+                <button mat-button type="submit" [disabled]="!boardForm.valid" cdkFocusInitial>done</button>
+      
+            </div>
+          </form>
+          <!--  -->
+    
+        </div>
+  </div>

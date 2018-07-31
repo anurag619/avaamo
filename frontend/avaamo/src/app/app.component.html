@@ -1,0 +1,111 @@
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row search-row">
+    <input class="col-md-4 search-input" [ngModel]="searchTerm" (ngModelChange)="searchBoards($event)" name="search" placeholder="Search"  />
+
+</div>
+<div class="app-main row" >
+
+
+  <div class="col-md-3 task-col">
+    <div class="state-head">
+      <p class="bold state-title">Backlog</p> 
+      <button class="add-backlog" (click)="addBoard()">Add</button>
+      <span>{{backlogs.length}}</span>
+    </div>
+
+    <div class="cards-col" >
+
+      <div class="card-element" *ngFor="let j of backlogs" draggable="true" (dragstart)="onDragStart($event,j)" 
+      (dragend)="onDragEnd($event,j)"  [hidden]="!j.display">
+        
+        <div style="text-align: right;">
+          <span (click)="deleteBoard(j.id)"><i class="fa fa-trash"></i></span>
+            
+        </div>
+        <div class="card-title" (click)="openStateDialog(j)" >
+          <span>{{j.title}}</span> <span class="bold">::{{j.priority}}</span>
+        </div>
+        <div class="card-description">
+          <p>
+            {{j.description}}
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="col-md-3 task-col" (drop)="onDrop($event)" (dragover)="allowDrop($event)">
+      <div class="state-head">
+          <p class="bold state-title">in progress</p>
+          <button class="add-backlog" (click)="addBoard()">Add</button>
+      </div>
+      
+      <div class="cards-col" >
+       
+        <div class="card-element" *ngFor="let k of progress" draggable="true" 
+        (dragend)="onDragEnd($event,k)" [hidden]="!k.display">
+          <div style="text-align: right;">
+            <span (click)="deleteBoard(k.id)"><i class="fa fa-trash"></i></span>
+              
+          </div>
+          <div class="card-title" (click)="openStateDialog(k)">
+            <span>{{k.title}}</span> <span class="bold">::{{k.priority}}</span>
+          </div>
+          <div class="card-description">
+            <p>
+              {{k.description}}
+            </p>
+          </div>
+        </div>
+  
+      </div>
+  </div>
+
+
+  <div class="col-md-3 task-col" (drop)="onDropDone($event)" (dragover)="allowDrop($event)">
+      <div class="state-head">
+        <p class="bold state-title">done</p>
+      </div>
+     
+      <div class="cards-col">
+        
+        <div class="card-element" *ngFor="let k of done" draggable="true" 
+        (dragend)="onDoneDragEnd($event,k)" (click)="openStateDialog(k)">
+          <div class="card-title">
+            <span>{{k.title}}</span> <span>{{k.priority}}</span>
+          </div>
+          <div class="card-description">
+            <p>
+              {{k.description}}
+            </p>
+          </div>
+        </div>
+  
+      </div>
+  </div>
+  <div class="col-md-3 task-col">
+      <div class="state-head">
+        <p class="bold state-title">QA verified.</p>
+      </div>
+     
+      <div class="cards-col">
+        <div class="card-element">
+          <div class="card-title">
+            <span>AVAAMO-5</span> <span>Normal</span>
+          </div>
+          <div class="card-description">
+            <p>
+              ability to handle live project and show some default in non-managable position
+            </p>
+          </div>
+        </div>
+  
+      </div>
+  </div>
+  
+</div>

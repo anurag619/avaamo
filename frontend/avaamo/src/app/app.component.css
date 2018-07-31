@@ -1,0 +1,66 @@
+
+
+
+*{
+    box-sizing: border-box;
+}
+.bold{
+    font-weight: bold;
+}
+.app-main{
+    padding: 20px;
+    font-size: 12px;
+    height: 100vh;
+}
+.disabled{
+    color: #ccc;
+    pointer-events: none;
+}
+.task-col{
+    border-right: 1px solid #ddd;
+}
+.state-head{
+    padding: 0 10px;
+    border-bottom: 1px solid #ddd; 
+}
+.cards-col{
+    padding: 10px 0;
+}
+.state-title{
+    margin: 0;
+    display: inline-block;
+}
+.card-element{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.card-element:hover{
+    border: 2px dashed #888;
+}
+
+.add-backlog{
+    padding: 5px 15px;
+    border-radius: 4px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #000; 
+    cursor: pointer;
+}
+.add-backlog:hover{
+    background-color:#ddd;
+}
+.search-row{
+    padding: 10px;
+}
+.search-input{
+    display: inline-block;
+    margin: 0 auto;
+}
+.in-progress{
+    font-weight: bold;
+}
